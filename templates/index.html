@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Filmology</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/styles/font-awesome.min.css"
+        />
+        <link
+                rel="stylesheet"
+                href="{{ url_for('static', filename='styles/style.css') }}"
+        />
+        <link
+                rel="stylesheet"
+                href="{{ url_for('static', filename='styles/responsive.css') }}"
+        />
+        <link
+                rel="apple-touch-icon"
+                sizes="180x180"
+                href="{{ url_for('static', filename='logo.png') }}"
+        />
+        <link
+                rel="icon" type="image/png"
+                sizes="32x32"
+                href="{{ url_for('static', filename='logo.png') }}"
+        />
+        <link
+                rel="icon" type="image/png"
+                sizes="16x16"
+                href="{{ url_for('static', filename='logo.png') }}"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+    </head>
+    <body
+        onload='if (window.location.href.substr(window.location.href.length - 6) == "#blog") { introAboutLogoTransition(); }'
+    >
+        <!--navbar-->
+        <nav class="navbar glass" style="height: 70px">
+            <span
+                ><a href="#home" style="display: flex; align-items: center"
+                    ><img
+                        class="img2"
+                        src="./static/logo.png"
+                        width="45"
+                        style="margin: -25px -10px -25px -20px"
+                    />
+                    <h1 class="logo">&nbsp;Filmology</h1></a
+                ></span
+            >
+            <ul class="nav-links">
+                <li>
+                    <a href="#home" id="pri" class="active cir_border">Home</a>
+                </li>
+                <li><a href="#features" id="sec" class="cir_border">Features</a></li>
+                <li>
+                    <a href="#recommendation" id="tri" class="cir_border">Recommendation</a>
+                </li>
+                <li>
+                    <a href="#about" id="quad" class="cir_border">About</a>
+                </li>
+                <li><a href="#blog" id="quint" class="cir_border">Blog</a></li>
+                <li>
+                    <a href="#team" id="hex" class="cir_border"
+                        >Team</a
+                    >
+                </li>
+                <li>
+                    <a href="#contact" id="hept" class="cir_border">Contact</a>
+                </li>
+                <li>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="checkbox dark"
+                            id="checkbox"
+                        />
+                        <label for="checkbox" class="label">
+                            <i class="fa fa-moon-o"></i>
+                            <i class="fa fa-sun-o"></i>
+                            <div class="ball"></div>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+            <img src="./static/menu-btn.png" alt="" class="menu-btn" />
+        </nav>
+        <!--navbar-->
+
+        <header id="home">
+            <div class="header-content">
+                <h2 id="quote">Dive into the World of Films</h2>
+                <div class="line"></div>
+                <h1>A CINEMATIC JOURNEY</h1>
+                <a
+                    href="#about"
+                    class="ctn"
+                    onclick='removeall(); $("#quad").css("border", "2px solid whitesmoke"); $("#quad").css("border-radius", "20px");'
+                    >Learn more</a
+                >
+                <a
+                    href="#recommendation"
+                    class="ctn"
+                    onclick='removeall(); $("#quad").css("border", "2px solid whitesmoke"); $("#quad").css("border-radius", "20px");'
+                    >Try Filmology</a
+                >
+            </div>
+        </header>
+
+        <!--Features-->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="title">
+                    <h1 class="dark">Key Features</h1>
+                    <div class="line"></div>
+                </div>
+                <div class="row">
+                    <article class="card col">
+                        <img class="card-img" src="./static/feature1.png" />
+                        <h4 class="dark">Tailored Recommendations</h4>
+                        <p class="font-color">
+                            Discover movies tailored to your unique preferences and viewing history.
+                        </p>
+                        <a href="#" class="ctn">All Details</a>
+                    </article>
+                    <article class="card col">
+                        <img src="./static/feature2.jpg" />
+                        <h4 class="dark">Top Trending Movies</h4>
+                        <p class="font-color">
+                            Stay up-to-date with the latest and most popular films in the industry.
+                        </p>
+                        <a href="#" class="ctn">All Details</a>
+                    </article>
+                    <article class="card col">
+                        <img src="./static/feature3.jpg" />
+                        <h4 class="dark">Detailed Movie Insights</h4>
+                        <p class="font-color">
+                            Access in-depth reviews and ratings for all your favorite films.
+                        </p>
+                        <a href="#" class="ctn">All Details</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!--Features-->
+
+        <!--Recommendation-->
+        <section class="recommendation" id="recommendation">
+            <div class="recommendation-content">
+                <h1>FIND YOUR NEXT MOVIE</h1>
+                <div class="line"></div>
+                <p>
+                    "Movies transport us to different worlds, make us feel, think, and explore emotions in ways we never imagined."
+                    <br />Discover new films that match your taste with Filmology's recommendations.
+                </p>
+                <form action="{{ url_for('recommendation') }}#movie-details" method="POST">
+                    <input type="text" name="titre" placeholder="Enter a movie title..." required>
+                    <button type="submit" class="ctn">Get Recommendations</button>
+                </form>
+            </div>
+        </section>
+        <!--Recommendation-->
+
+        <!--About-->
+        <section class="about" id="about">
+            <div class="container row">
+                <div class="col content-col">
+                    <h1 class="font-color">About Filmology</h1>
+                    <div class="line"></div>
+                    <p>
+                        Filmology was inspired by a love for movies and the need for personalized recommendations.<br />
+                        It's designed to help you discover films that suit your taste and make your movie nights even better.<br />
+                        Check my GitHub Repository for more details.
+                    </p>
+                    <a href="https://github.com/Alogyn/Filmology" class="ctn">Follow Me</a>
+                </div>
+                <div class="image-col">
+                    <div class="image-gallery">
+                        <img src="./static/img3.png" alt="" />
+                        <img src="./static/img4.jpg" alt="" />
+                        <img src="./static/img5.jpg" alt="" />
+                        <img src="./static/img6.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <br /><br /><br /><br />
+        </section>
+        <!--About-->
+
+        <!-- Blog -->
+        <section id="blog">
+            <div class="title">
+                <h1 class="font-color">Filmology Blog</h1>
+                <div class="line"></div>
+            </div>
+            <br />
+            <div id="blogs">
+                <div class="boxx">
+                    <div class="containerx">
+                        <input type="radio" name="slider" id="item-1" checked />
+                        <input type="radio" name="slider" id="item-2" />
+                        <input type="radio" name="slider" id="item-3" />
+                        <div class="cards">
+                            <label class="cardt" for="item-1" id="col-img-1">
+                                <img src="./static/carousel-img4.jpg" />
+                            </label>
+                            <label class="cardt" for="item-2" id="col-img-2">
+                                <img src="./static/carousel-img5.jpg" />
+                            </label>
+                            <label class="cardt" for="item-3" id="col-img-3">
+                                <img src="./static/carousel-img6.jpg" />
+                            </label>
+                            
+                        </div>
+                    </div>
+                    <span id="blog-quad"
+                        ><a href="#home"
+                            ><center>
+                                <h1
+                                    style="
+                                        font-family: var(--ff-montserrat);
+                                        color: white;
+                                    "
+                                >
+                                    Find that
+                                </h1>
+                                <br />
+                                <img
+                                    class="img2"
+                                    src="./static/mountain_dark.jpg"
+                                    width="200"
+                                    style="border-radius: 12%"
+                                />
+                                <br />
+                                <h1 class="logo" style="font-size: 50px">
+                                    ADVENTURE
+                                </h1>
+                            </center>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <!-- Blog -->
+
+        <!-- Team -->
+        <div class="title">
+            <h1 class="font-color">Meet the Team</h1>
+            <div class="line"></div>
+        </div>
+        <section class="team" id="team">
+            <div class="concard">
+                <img
+                    src="https://github.com/Alogyn.png"
+                    alt="profile-picture"
+                    class="pfp"
+                />
+                <div class="text">
+                    <h1>Mohamed Derfoufi</h1>
+                </div>
+                <div class="logolink">
+                    <a href="https://github.com/Alogyn" target="_blank"
+                        ><img
+                            src="./static/GitHub120px.png"
+                            alt="Github-Logo"
+                            class="github-logo"
+                    /></a><br />
+                    <a href="#" target="_blank"
+                    ><img
+                        src="./static/LinkedIn120px.png"
+                        alt="LinkedIn-Logo"
+                        class="LinkedIn-logo"
+                    s/></a>
+                </div>
+            </div>
+        </section>
+        <!-- Team -->
+
+        <!-- contact -->
+        <section id="contact">
+            <div class="title">
+                <h1 class="font-color">Contact Us</h1>
+                <div class="line"></div>
+            </div>
+            <div class="contact_us">
+                <form class="cform" action="" method="post">
+                    <div class="crow-message">
+                        <h1 class="color">Send us a message</h1>
+                        <div></div>
+                    </div>
+                    <div class="crow-in">
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                        />
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="Your Email"
+                        />
+                    </div>
+                    <div class="crow">
+                        <div class="ccol-left">
+                            <select name="country" id="country">
+                                <option value="India">Morocco</option>
+                                <option value="India">India</option>
+                                <option value="Russia">Russia</option>
+                                <option value="usa">USA</option>
+                                <option value="Japan">Japan</option>
+                                <option value="France">France</option>
+                                <option value="Brazil">Brazil</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="crow">
+                        <div class="ccol-left">
+                            <textarea
+                                type="text"
+                                id="remarks"
+                                name="remarks"
+                                placeholder="Your Remarks....."
+                                style="height: 150px"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <input class="crow-s" type="submit" value="Submit" />
+                </form>
+                <div class="cbox">
+                    <div>
+                        <p class="cbox-message">
+                            Prefer some other way ?<br />Reach me by using the
+                            details given below
+                        </p>
+                        <div class="cbox-line"></div>
+                    </div>
+                    <div class="c_boxx">
+                        <a href="mailto:abc@gmail.com"
+                            ><i class="fa fa-envelope"></i>
+                            Mail: mohamed.derfoufi.dev@gmail.com
+                        </a>
+                    </div>
+                    <div class="c_boxx">
+                        <a href="tel:+XXX-XXXXX-XXXXX"
+                            ><i class="fa fa-phone"></i>
+                            Phone: (+XXX) XXXXX-XXXXX
+                        </a>
+                    </div>
+                    <div class="c_boxx">
+                        <a href="#"
+                            ><i class="fa fa-map-marker"></i>
+                            Location: XXXXXXXX,XXXXX XXXXXXX,XXXXX
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact  -->
+        <!-- up scroll -->
+        <i class="arrow"  onclick="topFunction()" id="upbtn"></i>
+        <!-- end -->
+        <!--footer-->
+        <section class="footer">
+            <span
+                >Developed By Mohamed Derfoufi | &#169; 2024 All rights
+                reserved.
+            </span>
+        </section>
+        <!--footer-->
+
+        <script>
+            const menuBtn = document.querySelector(".menu-btn");
+            const navlinks = document.querySelector(".nav-links");
+
+            menuBtn.addEventListener("click", () => {
+                navlinks.classList.toggle("mobile-menu");
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="{{ url_for('static', filename='styles/script.js') }}"></script>
+    </body>
+</html>

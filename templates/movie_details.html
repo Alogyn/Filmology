@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ details.title }} - Film Details</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/styles/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/style.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='styles/responsive.css') }}"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="{{ url_for('static', filename='logo.png') }}"
+        />
+        <link
+            rel="icon" type="image/png"
+            sizes="32x32"
+            href="{{ url_for('static', filename='logo.png') }}"
+        />
+        <link
+            rel="icon" type="image/png"
+            sizes="16x16"
+            href="{{ url_for('static', filename='logo.png') }}"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        padding-top: 50px;
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+      }
+      .movie-details {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .movie-poster {
+        flex: 1;
+        text-align: center;
+      }
+      .movie-poster img {
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .movie-info {
+        flex: 2;
+        padding-left: 30px;
+      }
+      .movie-info h1 {
+        margin-bottom: 20px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #333;
+      }
+      .movie-info p {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #555;
+      }
+      .movie-info strong {
+        color: #333;
+      }
+      .back-button {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--navbar-->
+    <nav class="navbar glass" style="height: 70px">
+      <span
+      ><a href="{{ url_for('index') }}" style="display: flex; align-items: center"
+      ><img
+              class="img2"
+              src="{{ url_for('static', filename='logo.png') }}"
+              width="45"
+              style="margin: -25px -10px -25px -20px"
+      />
+        <h1 class="logo">&nbsp;Filmology</h1></a
+      ></span
+      >
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}" id="pri" class="cir_border">Home</a></li>
+        <li><a href="{{ url_for('index') }}#features" id="sec" class="cir_border">Features</a></li>
+        <li><a href="{{ url_for('index') }}#recommendation" id="tri" class="active cir_border">Recommendation</a></li>
+        <li><a href="{{ url_for('index') }}#about" id="quad" class="cir_border">About</a></li>
+        <li><a href="{{ url_for('index') }}#blog" id="quint" class="cir_border">Blog</a></li>
+        <li><a href="{{ url_for('index') }}#team" id="hex" class="cir_border">Team</a></li>
+        <li><a href="{{ url_for('index') }}#contact" id="hept" class="cir_border">Contact</a></li>
+        <li>
+          <div>
+            <input
+                    type="checkbox"
+                    class="checkbox dark"
+                    id="checkbox"
+            />
+            <label for="checkbox" class="label">
+              <i class="fa fa-moon-o"></i>
+              <i class="fa fa-sun-o"></i>
+              <div class="ball"></div>
+            </label>
+          </div>
+        </li>
+      </ul>
+      <img src="./static/menu-btn.png" alt="" class="menu-btn" />
+    </nav>
+    <!--navbar-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 movie-details">
+          <div class="movie-poster">
+            {% if details.poster_path %}
+            <img src="https://image.tmdb.org/t/p/original{{ details.poster_path }}" alt="{{ details.title }}">
+            {% endif %}
+          </div>
+          <div class="movie-info">
+            <h1>{{ details.title }}</h1>
+            <p><strong>Release Date:</strong> {{ details.release_date }}</p>
+            <p><strong>Rating:</strong> {{ details.vote_average }}/10</p>
+            <p><strong>Overview:</strong> {{ details.overview }}</p>
+            <button onclick="window.history.back();" class="ctn">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer-->
+    <section class="footer">
+      <span>
+      Developed By Mohamed Derfoufi | &#169; 2024 All rights
+                reserved.
+      </span>
+    </section>
+    <!--footer-->
+
+    <script>
+            const menuBtn = document.querySelector(".menu-btn");
+            const navlinks = document.querySelector(".nav-links");
+
+            menuBtn.addEventListener("click", () => {
+                navlinks.classList.toggle("mobile-menu");
+            });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='styles/script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
