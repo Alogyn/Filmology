@@ -10,7 +10,7 @@ app.secret_key = 'your_secret_key'
 
 # Initialize TMDb with your API key
 tmdb = TMDb()
-tmdb.api_key = '4076f686fa1a8ca894500d3eef307265'
+tmdb.api_key = 'Your_tmdp.api_key_here'
 
 # Load the movie dataset
 df = pd.read_csv("dataset/movies2.csv", delimiter=";", encoding='ISO-8859-1')
@@ -45,7 +45,7 @@ def film_recommander(titre, data, matrice_score, nombre=5):
     """
     lignes = data.index[data['name'].str.lower() == titre.lower()]
     if len(lignes) == 0:
-        return [{'titre': 'Désolé ! Aucun film similaire trouvé.', 'poster': None}]
+        return [{'titre': 'Sorry ! No similar movie found.', 'poster': None}]
 
     ligne = lignes[0]
     if ligne >= len(matrice_score):
@@ -101,7 +101,7 @@ def recommendation():
     movie_exists = movie_details is not None
     # Determine if recommendations are empty
     recommendations_empty = len(recommandations) == 0 or recommandations[0][
-        'titre'] == 'Désolé ! Aucun film similaire trouvé.'
+        'titre'] == 'Sorry ! No similar movie found.'
 
     return render_template('recommendation.html',
                            recommandations=recommandations,

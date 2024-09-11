@@ -157,7 +157,10 @@
                 </p>
                 <form action="{{ url_for('recommendation') }}#movie-details" method="POST">
                     <input type="text" name="titre" placeholder="Enter a movie title..." required>
-                    <button type="submit" class="ctn">Get Recommendations</button>
+                    <button type="submit" class="ctn"
+                    class="ctn"
+                    onclick='removeall(); $("#quad").css("border", "2px solid whitesmoke"); $("#quad").css("border-radius", "20px");'
+                    >Get Recommendations</button>
                 </form>
             </div>
         </section>
