@@ -91,7 +91,11 @@ Filmology integrates with the TMDb [API](https://developer.themoviedb.org/refere
 - API: TMDb API for movie details
 
 ## 🖼️ DEMO
-https://www.youtube.com/watch?v=ULoDDD3dB70
+## Demo Video
+
+Watch the demo video of *Filmology* on YouTube:
+
+[![Filmology Demo Video](https://img.youtube.com/vi/ULoDDD3dB70/maxresdefault.jpg)](https://www.youtube.com/watch?v=ULoDDD3dB70)
 
 👨‍💻 Author
 - Name: Mohamed Derfoufi
