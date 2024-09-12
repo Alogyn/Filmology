@@ -89,13 +89,14 @@ Filmology integrates with the TMDb [API](https://developer.themoviedb.org/refere
 - Data Processing: Pandas, Scikit-learn
 - Frontend: HTML, CSS, JavaScript
 - API: TMDb API for movie details
-🖼️ DEMO
 
+## 🖼️ DEMO
+https://www.youtube.com/watch?v=ULoDDD3dB70
 
 👨‍💻 Author
-Name: Mohamed Derfoufi
-GitHub: [Alogyn](https://github.com/Alogyn)
-Email: mohamed.derfoufi.dev@gmail.com
+- Name: Mohamed Derfoufi
+- GitHub: [Alogyn](https://github.com/Alogyn)
+- Email: mohamed.derfoufi.dev@gmail.com
 
 ## 📝 License
 This project is licensed under the MIT License. See the [LICENSE] file for more details.
