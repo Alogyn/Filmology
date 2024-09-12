@@ -96,7 +96,7 @@ Watch the demo video of *Filmology* on YouTube:
 
 [![Filmology Demo Video](https://img.youtube.com/vi/ULoDDD3dB70/maxresdefault.jpg)](https://www.youtube.com/watch?v=ULoDDD3dB70)
 
-👨‍💻 Author
+## 👨‍💻 Author
 - Name: Mohamed Derfoufi
 - GitHub: [Alogyn](https://github.com/Alogyn)
 - Email: mohamed.derfoufi.dev@gmail.com
