@@ -2,13 +2,13 @@
 
 Filmology is a movie recommendation web application that provides tailored movie suggestions based on user input. It leverages a combination of a content-based filtering approach and the TMDb API to deliver accurate movie details, including posters and recommendations.
 
-## Features
+## 🚀 Features
 
 - **Tailored Recommendations**: Get movie recommendations based on similar titles.
 - **Trending Movies**: Stay updated with the latest popular films.
 - **Detailed Movie Insights**: Access comprehensive information about a movie, including cast, overview, and poster images.
 
-## Installation
+## 🛠️ Installation
 
 ### Prerequisites
 
@@ -90,8 +90,7 @@ Filmology integrates with the TMDb [API](https://developer.themoviedb.org/refere
 - Frontend: HTML, CSS, JavaScript
 - API: TMDb API for movie details
 
-## 🖼️ DEMO
-## Demo Video
+## 🎬 Demo Video
 
 Watch the demo video of *Filmology* on YouTube:
 
